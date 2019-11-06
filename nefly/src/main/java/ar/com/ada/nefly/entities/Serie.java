@@ -2,6 +2,7 @@ package ar.com.ada.nefly.entities;
 
 import java.util.*;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -11,22 +12,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Serie extends Contenido {
 
     public List<Temporada> temporadas = new ArrayList<Temporada>();
-    
 
-    public Temporada getTemporada(int nro)
-    {
-        //Recorrer cada temporada
-        //Si el nro de temporada del ciclo es igual a "nro"
-        //Devolver esa temporada
-        
+    public Serie() {
+    }
+
+    public Serie(ObjectId _id, String nombre, String genero, int año) {
+        super(_id, nombre, genero, año);
+    }
+
+    public Temporada getTemporada(int nro) {
+
         for (Temporada tempo : this.temporadas) {
-            if(tempo.numeroTemporada == nro)
-            {
+            if (tempo.nroTemporada == nro) {
                 return tempo;
             }
-            
         }
-
         return null;
     }
 

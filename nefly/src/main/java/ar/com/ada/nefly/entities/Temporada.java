@@ -7,16 +7,11 @@ import java.util.*;
  */
 public class Temporada {
 
-    public int numeroTemporada;
+    public int nroTemporada;
     public List<Episodio> episodios = new ArrayList<Episodio>();
-    
 
-    public Episodio getEpisodio(int nro)
-    {
-        //Recorrer cada episodio
-        //Si el nro de episodio del ciclo es igual a "nro"
-        //Devolver esa episodio
-        
+    public Episodio getEpisodio(int nro){
+      
         for (Episodio epi : this.episodios) {
             if(epi.nroEpisodio == nro)
             {
@@ -26,5 +21,24 @@ public class Temporada {
         }
 
         return null;
+    }
+
+    public Temporada() {
+    }
+
+    public int getNroTemporada() {
+        return nroTemporada;
+    }
+
+    public void setNroTemporada(int nroTemporada) {
+        this.nroTemporada = nroTemporada;
+    }
+
+    public List<Episodio> getEpisodios() {
+        return episodios;
+    }
+
+    public void setEpisodios(List<Episodio> episodios) {
+        this.episodios = episodios;
     }
 }

@@ -41,13 +41,11 @@ public class UsuarioService {
     public Usuario buscarPorEmail(String email) {
 
         return repo.findByUserEmail(email);
-
     }
 
     public Usuario buscarPorUsername(String username) {
 
         return repo.findByUserName(username);
-
     }
 
     public ObjectId crearUsuario(String fullName, String email, String password) {
@@ -72,7 +70,6 @@ public class UsuarioService {
                         + "Ademas te regalamos 100 pesitos");
 
         return u.get_id();
-
     }
 
     public void login(String username, String password) {
@@ -83,6 +80,5 @@ public class UsuarioService {
 
             throw new BadCredentialsException("Usuario o contraseña invalida");
         }
-
     }
 }

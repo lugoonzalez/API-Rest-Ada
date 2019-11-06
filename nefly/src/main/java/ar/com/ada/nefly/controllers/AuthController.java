@@ -34,7 +34,6 @@ public class AuthController {
     @PostMapping("auth/register")
     public RegistrationResponse postRegisterUser(@RequestBody RegistrationRequest req)  {
         RegistrationResponse r = new RegistrationResponse();
-        // aca creamos la persona y el usuario a travez del service.
 
         ObjectId uId = usuarioService.crearUsuario(req.fullName, req.email, req.password);
 
@@ -42,7 +41,6 @@ public class AuthController {
         r.message = "Te registraste con exitoooo";
         r.userId = uId;
         return r;
-
     }
 
     @PostMapping("auth/login")
@@ -51,13 +49,11 @@ public class AuthController {
 
         usuarioService.login(authenticationRequest.username, authenticationRequest.password);
 
-        final UserDetails userDetails = userDetailsService
-            .loadUserByUsername(authenticationRequest.username);
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.username);
 
         final String token = jwtTokenUtil.generateToken(userDetails);
 
         return ResponseEntity.ok(new JwtResponse(token));
-
     }
     
 }
