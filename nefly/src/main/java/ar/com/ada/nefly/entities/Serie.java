@@ -30,4 +30,8 @@ public class Serie extends Contenido {
         return null;
     }
 
+    public List<Temporada> getTemporadas() {
+        return temporadas;
+    }
+
 }
