@@ -6,9 +6,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import ar.com.ada.nefly.entities.Episodio;
+import ar.com.ada.nefly.entities.Pelicula;
 import ar.com.ada.nefly.entities.Serie;
 import ar.com.ada.nefly.entities.Temporada;
+import ar.com.ada.nefly.services.PeliculaService;
 import ar.com.ada.nefly.services.SerieService;
+import ar.com.ada.nefly.services.PeliculaService.PeliculaValidationType;
 import ar.com.ada.nefly.services.SerieService.SerieValidationType;
 
 @SpringBootTest
@@ -24,7 +27,18 @@ class DemoApplicationTests {
 
 		Serie serie = new Serie();
 
-		SerieValidationType validationType = service.verificarService(serie);
+		SerieValidationType validationType = service.validarSerie(serie);
+
+		assertEquals(SerieValidationType.SERIE_DATOS_INVALIDOS, validationType);
+	}
+
+	void verificarPelicula() {
+
+		PeliculaService service = new PeliculaService();
+		
+		Pelicula peli = new Pelicula();
+
+		PeliculaValidationType validationType = service.validarPelicula(peli);
 
 		assertEquals(SerieValidationType.SERIE_DATOS_INVALIDOS, validationType);
 	}
@@ -58,7 +72,7 @@ class DemoApplicationTests {
 
 		temporada2.getEpisodios().add(e);
 		
-		SerieValidationType serieValidationType = service.verificarService(serie);
+		SerieValidationType serieValidationType = service.validarSerie(serie);
 
 		assertEquals(SerieValidationType.TEMPORADA_DUPLICADA, serieValidationType);
 	}

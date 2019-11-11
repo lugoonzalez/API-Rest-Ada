@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 /**
  * NetflixController
  */
@@ -77,7 +76,6 @@ public class NeflyController {
         return r;
     }
 
-    //Prueba de git
     
 
     

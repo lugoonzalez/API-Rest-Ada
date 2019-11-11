@@ -35,9 +35,21 @@ public class PeliculaService {
         return repoPelicula.findByNombre(nombre);
     }
 
-    public List<Pelicula> getCatalogo() {
-        return repoPelicula.findAll();
+    public enum PeliculaValidationType {
+
+        PELICULA_OK,
+        PELICULA_DATOS_INVALIDOS
     }
 
+    public PeliculaValidationType validarPelicula(Pelicula pelicula){
+
+        if (pelicula.getNombre() == null)
+        return PeliculaValidationType.PELICULA_OK;
+
+        if (pelicula.getAño() <= 0)
+        return PeliculaValidationType.PELICULA_DATOS_INVALIDOS;
+
+        return PeliculaValidationType.PELICULA_OK;
+    }
     
 }

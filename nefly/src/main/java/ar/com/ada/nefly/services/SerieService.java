@@ -51,7 +51,7 @@ public class SerieService {
         SERIE_DATOS_INVALIDOS 
     }
 
-    public SerieValidationType verificarService(Serie serie){
+    public SerieValidationType validarSerie(Serie serie){
         
         if (serie.getNombre() == null)
         return SerieValidationType.SERIE_OK;
@@ -78,4 +78,5 @@ public class SerieService {
 
         return SerieValidationType.SERIE_OK;
     }
+
 }
