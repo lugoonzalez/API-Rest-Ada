@@ -31,34 +31,9 @@ public class NeflyService {
        return peliculaService.buscarPorNombre(nombre);      
     }
 
-    
     public Serie buscarSerie(String nombre) {
         return serieService.buscarPorNombre(nombre);
     }
-
-    /*public Pelicula cargarPelicula(String nombre, String genero, int año, int duracion, boolean ganoOscar){
-
-        Pelicula p = new Pelicula();
-        p.setNombre(nombre);
-        p.setGenero(genero);
-        p.setAño(año);
-        p.setDuracion(duracion);
-        p.setGanoOscar(ganoOscar);
-
-        repoPelicula.save(p);
-        return p;
-    }
-
-    public Serie cargarSerie(String nombre, String genero, int año){
-
-        Serie s = new Serie();
-        s.setNombre(nombre);
-        s.setGenero(genero);
-        s.setAño(año);
-        
-        repoSerie.save(s);
-        return s;
-    }*/
 
     public void cargarPelicula(Pelicula p){
         

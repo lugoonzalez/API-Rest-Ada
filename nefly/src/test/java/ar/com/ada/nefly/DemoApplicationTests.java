@@ -40,7 +40,7 @@ class DemoApplicationTests {
 
 		PeliculaValidationType validationType = service.validarPelicula(peli);
 
-		assertEquals(SerieValidationType.SERIE_DATOS_INVALIDOS, validationType);
+		assertEquals(PeliculaValidationType.PELICULA_DATOS_INVALIDOS, validationType);
 	}
 
 	@Test
@@ -76,4 +76,6 @@ class DemoApplicationTests {
 
 		assertEquals(SerieValidationType.TEMPORADA_DUPLICADA, serieValidationType);
 	}
+
+	//void buscarGenerosMalAñadidos()
 }

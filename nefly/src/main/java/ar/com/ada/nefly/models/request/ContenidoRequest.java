@@ -8,7 +8,7 @@ public class ContenidoRequest {
     public String nombre;
     public String genero;
     public int año;
-    public int duracion;
+    public double duracion;
 
     public int nroEpisodio;
     public String titulo;

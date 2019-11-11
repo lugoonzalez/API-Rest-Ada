@@ -38,7 +38,9 @@ public class PeliculaService {
     public enum PeliculaValidationType {
 
         PELICULA_OK,
-        PELICULA_DATOS_INVALIDOS
+        PELICULA_DATOS_INVALIDOS,
+        PELICULA_DURACION_INVALIDA,
+        PELICULA_SIN_GENERO_AÑADIDO
     }
 
     public PeliculaValidationType validarPelicula(Pelicula pelicula){
@@ -48,6 +50,12 @@ public class PeliculaService {
 
         if (pelicula.getAño() <= 0)
         return PeliculaValidationType.PELICULA_DATOS_INVALIDOS;
+
+        if(pelicula.getDuracion() <=0.00 || pelicula.getDuracion() >=4.00)
+        return PeliculaValidationType.PELICULA_DURACION_INVALIDA;
+
+        if(pelicula.getGenero() != null)
+        return PeliculaValidationType.PELICULA_SIN_GENERO_AÑADIDO;
 
         return PeliculaValidationType.PELICULA_OK;
     }

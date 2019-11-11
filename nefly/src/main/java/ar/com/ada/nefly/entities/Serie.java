@@ -20,6 +20,10 @@ public class Serie extends Contenido {
         super(_id, nombre, genero, año);
     }
 
+    public Serie(List<Genero> generos) {
+        super(generos);
+    }
+
     public Temporada getTemporada(int nro) {
 
         for (Temporada tempo : this.temporadas) {

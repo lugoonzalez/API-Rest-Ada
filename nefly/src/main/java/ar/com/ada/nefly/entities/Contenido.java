@@ -1,5 +1,7 @@
 package ar.com.ada.nefly.entities;
 
+import java.util.*;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
@@ -13,12 +15,14 @@ public class Contenido {
     private String nombre;
     private String genero;
     private int año;
-    private int duracion;
+    private double duracion;
+
+    private List<Genero> generos = new ArrayList<Genero>();
 
     public Contenido() {
     }
     
-    public Contenido(ObjectId _id, String nombre, String genero, int año, int duracion) {
+    public Contenido(ObjectId _id, String nombre, String genero, int año, double duracion) {
         this._id = _id;
         this.nombre = nombre;
         this.genero = genero;
@@ -31,6 +35,10 @@ public class Contenido {
         this.nombre = nombre;
         this.genero = genero;
         this.año = año;
+    }
+    
+    public Contenido(List<Genero> generos) {
+        this.generos = generos;
     }
 
     public String getNombre() {
@@ -57,13 +65,20 @@ public class Contenido {
         this.año = año;
     }
 
-    public int getDuracion() {
+    public double getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(int duracion) {
+    public void setDuracion(double duracion) {
         this.duracion = duracion;
     }
 
+    public List<Genero> getGeneros() {
+        return generos;
+    }
+
+    public void setGeneros(List<Genero> generos) {
+        this.generos = generos;
+    }
 
 }
