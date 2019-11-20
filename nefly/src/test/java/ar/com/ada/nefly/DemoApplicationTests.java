@@ -3,6 +3,7 @@ package ar.com.ada.nefly;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import ar.com.ada.nefly.entities.Episodio;
@@ -17,21 +18,24 @@ import ar.com.ada.nefly.services.SerieService.SerieValidationType;
 @SpringBootTest
 class DemoApplicationTests {
 
+	@Autowired
+	SerieService serieService;
+
 	@Test
 	void contextLoads() {
 	}
 
+	@Test
 	void verificarSerie() {
-
-		SerieService service = new SerieService();
 
 		Serie serie = new Serie();
 
-		SerieValidationType validationType = service.validarSerie(serie);
+		SerieValidationType validationType = serieService.validarSerie(serie);
 
 		assertEquals(SerieValidationType.SERIE_DATOS_INVALIDOS, validationType);
 	}
 
+	@Test
 	void verificarPelicula() {
 
 		PeliculaService service = new PeliculaService();
@@ -45,8 +49,6 @@ class DemoApplicationTests {
 
 	@Test
 	void verificarSerieTempDuplicada() {
-
-		SerieService service = new SerieService();
 
 		Serie serie = new Serie();
 		serie.setNombre("How to Get Away with Murder");
@@ -72,7 +74,7 @@ class DemoApplicationTests {
 
 		temporada2.getEpisodios().add(e);
 		
-		SerieValidationType serieValidationType = service.validarSerie(serie);
+		SerieValidationType serieValidationType = serieService.validarSerie(serie);
 
 		assertEquals(SerieValidationType.TEMPORADA_DUPLICADA, serieValidationType);
 	}
